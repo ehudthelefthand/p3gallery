@@ -12,6 +12,9 @@ const config = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    domains: ["kk5ufmcho3.ufs.sh"],
+  },
 };
 
 export default config;

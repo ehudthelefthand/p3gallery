@@ -22,7 +22,8 @@ export const imageTable = createTable(
   "images",
   {
     id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
-    url: varchar("url", { length: 256 }),
+    name: varchar("name", { length: 255 }).notNull(),
+    url: varchar("url", { length: 1024 }).notNull(),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
@@ -31,6 +32,6 @@ export const imageTable = createTable(
     ),
   },
   (example) => ({
-    nameIndex: index("name_idx").on(example.url),
+    nameIndex: index("name_idx").on(example.name),
   }),
 );

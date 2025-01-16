@@ -1,6 +1,5 @@
 import { db } from "~/server/db";
 import { imageTable } from "~/server/db/schema";
-import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 

@@ -1,5 +1,5 @@
 import { db } from "~/server/db";
-import { posts } from "~/server/db/schema";
+import { imageTable } from "~/server/db/schema";
 
 export const dynamic = "force-dynamic";
 
@@ -10,22 +10,14 @@ const mockURLs = [
   "https://kk5ufmcho3.ufs.sh/f/6J4TnvydzIe8L00nhlvS41WlGaXUgROFCYAkKL8IZr2x0Tbh",
 ];
 
-const mockImages = mockURLs.map((url, index) => ({ id: index + 1, url }));
-
 export default async function HomePage() {
-  const ps = await db.select().from(posts);
-  // const posts = await db.query.posts.findMany();
+  const images = await db.select().from(imageTable);
 
   return (
     <main>
       <div className="flex flex-wrap gap-3">
-        {ps.map((post) => (
-          <div key={`${post.id}`} className="text-black">
-            {post.name}
-          </div>
-        ))}
-        {mockImages.map((image) => (
-          <div key={image.id} className="w-1/4">
+        {images.map((image) => (
+          <div key={`${image.id}`} className="w-1/4">
             <img className="w-full" src={image.url} alt="mock" />
           </div>
         ))}

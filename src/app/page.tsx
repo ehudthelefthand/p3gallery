@@ -1,6 +1,8 @@
 import { db } from "~/server/db";
 import { posts } from "~/server/db/schema";
 
+export const dynamic = "force-dynamic";
+
 const mockURLs = [
   "https://kk5ufmcho3.ufs.sh/f/6J4TnvydzIe8E0pvaxNWUoTGI326A90Q5eZLJPzaYw7fBdxg",
   "https://kk5ufmcho3.ufs.sh/f/6J4TnvydzIe8vTaR9E1jEUsHtWaCQBomnYwquGSc0OMpe2gI",
